@@ -33,19 +33,12 @@ class AddTodo extends Component {
     });
   };
   handleTodoSubmit = () => {
-    // dispatch(addTodo(this.state.content));
-    // this.props.addTodo(this.state.content);
-    // store.dispatch(addTodo(this.state.content));
-    store.subscribe(() => {
-      console.log(store.getState());
-    });
+    this.props.addTodoToStore(this.state.content);
     this.setState({
       content: ""
     });
-    // store.unsubscribe();
   };
   render() {
-    // const { addTodoToStore } = this.props;
     return (
       <div className={useStyles.container}>
         <TextField
@@ -69,13 +62,15 @@ class AddTodo extends Component {
     );
   }
 }
-// const mapsDispatchToProps = dispatch => {
-//   return {
-//     addTodoToStore: data => dispatch(addTodo(data))
-//   };
-// };
+const mapsDispatchToProps = dispatch => {
+  return {
+    addTodoToStore: data => {
+      dispatch(addTodo(data));
+    }
+  };
+};
 
 export default connect(
   null,
-  { addTodo }
+  mapsDispatchToProps
 )(AddTodo);

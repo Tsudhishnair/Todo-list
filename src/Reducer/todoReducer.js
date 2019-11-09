@@ -1,9 +1,10 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from "../Action/actionTypes";
-
+// intial state of the todo application
 const initialState = {
   allids: [],
   byIds: {}
 };
+//switch reducer function to handle add & toggle state of the todo.
 export default function(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO: {

@@ -2,11 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { toggleTodo } from "../Action/actions";
 import $ from "jquery";
-import { nominalTypeHack } from "prop-types";
 class ListTodo extends React.Component {
   handleClick = (event, id) => {
-    $(event.target).css("text-decoration", "line-through");
-
     this.props.toggleTodoItem(id);
   };
   render() {
@@ -15,14 +12,15 @@ class ListTodo extends React.Component {
         Nothing to return as of now
         {/* {console.log(this.props.todolist.byIds)} */}
         {Object.entries(this.props.todolist.byIds).map((item, index) => {
-          // if (item[1].completed)
-          //   return (
-          //     <li key={index} style={{ textDecoration: "line-through " }}>
-          //       {item[1].content}
-          //     </li>
-          //   );
-          // else
-          return (
+          return item[1].completed ? (
+            <li
+              key={index}
+              onClick={e => this.handleClick(e, index + 1)}
+              style={{ textDecoration: "line-through" }}
+            >
+              {item[1].content}
+            </li>
+          ) : (
             <li key={index} onClick={e => this.handleClick(e, index + 1)}>
               {item[1].content}
             </li>
@@ -44,7 +42,4 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
-export default connect(
-  mapStatetoProps,
-  mapDispatchToProps
-)(ListTodo);
+export default connect(mapStatetoProps, mapDispatchToProps)(ListTodo);

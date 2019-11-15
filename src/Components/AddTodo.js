@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
 import { addTodo } from "../Action/actions";
-import store from "../Store/store";
+// import store from "../Store/store";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -62,7 +62,7 @@ class AddTodo extends Component {
     );
   }
 }
-const mapsDispatchToProps = dispatch => {
+const mapsDispatchtoPros = dispatch => {
   return {
     addTodoToStore: data => {
       dispatch(addTodo(data));
@@ -72,5 +72,5 @@ const mapsDispatchToProps = dispatch => {
 
 export default connect(
   null,
-  mapsDispatchToProps
+  mapsDispatchtoPros
 )(AddTodo);

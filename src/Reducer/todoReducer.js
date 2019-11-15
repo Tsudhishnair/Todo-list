@@ -1,7 +1,7 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from "../Action/actionTypes";
 // intial state of the todo application
 const initialState = {
-  allids: [],
+  allids: [ ],
   byIds: {}
 };
 //switch reducer function to handle add & toggle state of the todo.

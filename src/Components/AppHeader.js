@@ -7,6 +7,8 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import NotificationsActiveRoundedIcon from "@material-ui/icons/NotificationsActiveRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
+import { connect } from "react-redux";
+import { toggleModal } from "../Action/actions";
 import "../Styles/todo.css";
 
 class AppHeader extends Component {
@@ -20,7 +22,7 @@ class AppHeader extends Component {
             </Grid>
             <Grid item>
               <IconButton type="submit" aria-label="search">
-                <SearchIcon className="header-icon"/>
+                <SearchIcon className="header-icon" />
               </IconButton>
               <InputBase
                 placeholder="Search here your todos"
@@ -29,7 +31,11 @@ class AppHeader extends Component {
               />{" "}
             </Grid>
             <Grid item>
-              <span>
+              <span
+                onClick={() => {
+                  this.props.toggleAddModal();
+                }}
+              >
                 <IconButton type="submit" aria-label="search">
                   <AddRoundedIcon className="header-icon" />
                 </IconButton>
@@ -51,4 +57,11 @@ class AppHeader extends Component {
     );
   }
 }
-export default AppHeader;
+const mapsDispatchToProps = dispatch => {
+  return {
+    toggleAddModal: () => {
+      dispatch(toggleModal());
+    }
+  };
+};
+export default connect(null, mapsDispatchToProps)(AppHeader);

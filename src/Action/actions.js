@@ -1,4 +1,10 @@
-import { ADD_TODO, DELETE_TODO, SET_FILTER, TOGGLE_TODO } from "./actionTypes";
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  SET_FILTER,
+  TOGGLE_TODO,
+  TOGGLE_ADD_TODO_MODAL
+} from "./actionTypes";
 
 //set the initial todo id to 0
 let todoId = 0;
@@ -27,4 +33,8 @@ export const toggleTodo = id => ({
   payload: { id }
 });
 
+export const toggleModal = () => ({
+  type: TOGGLE_ADD_TODO_MODAL,
+  payload: {}
+});
 //action to search the todo item -> next phase implementation

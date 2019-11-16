@@ -1,26 +1,9 @@
 import React, { Component } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
-import { addTodo } from "../Action/actions";
-// import store from "../Store/store";
-
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap",
-    margin: "10em"
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200
-  },
-  button: {
-    margin: theme.spacing(1)
-  }
-}));
+import { addTodo, toggleModal } from "../Action/actions";
+import "../Styles/todo.css";
 
 class AddTodo extends Component {
   constructor(props) {
@@ -40,24 +23,24 @@ class AddTodo extends Component {
   };
   render() {
     return (
-      <div className={useStyles.container}>
+      <div>
         <TextField
-          id="content"
+          id="title"
           name="content"
-          className={useStyles.textField}
           onChange={e => this.updateContent(e.target.value)}
           value={this.state.content}
-          label="Standard"
+          label="Title"
           margin="normal"
         />
-        <Button
-          variant="outlined"
-          color="primary"
-          className={useStyles.button}
-          onClick={this.handleTodoSubmit}
-        >
-          Add Todo
-        </Button>
+        <div>
+          <Button
+            size="small"
+            variant="contained"
+            onClick={this.handleTodoSubmit}
+          >
+            Add Todo
+          </Button>
+        </div>
       </div>
     );
   }
@@ -66,11 +49,9 @@ const mapsDispatchtoPros = dispatch => {
   return {
     addTodoToStore: data => {
       dispatch(addTodo(data));
+      dispatch(toggleModal());
     }
   };
 };
 
-export default connect(
-  null,
-  mapsDispatchtoPros
-)(AddTodo);
+export default connect(null, mapsDispatchtoPros)(AddTodo);

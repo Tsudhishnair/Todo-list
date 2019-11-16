@@ -1,8 +1,14 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from "../Action/actionTypes";
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_TODO,
+  TOGGLE_ADD_TODO_MODAL
+} from "../Action/actionTypes";
 // intial state of the todo application
 const initialState = {
-  allids: [ ],
-  byIds: {}
+  allids: [],
+  byIds: {},
+  toggleModal: false
 };
 //switch reducer function to handle add & toggle state of the todo.
 export default function(state = initialState, action) {
@@ -32,6 +38,12 @@ export default function(state = initialState, action) {
             completed: !state.byIds[id].completed
           }
         }
+      };
+    }
+    case TOGGLE_ADD_TODO_MODAL: {
+      return {
+        ...state,
+        toggleModal: !state.toggleModal
       };
     }
     default:

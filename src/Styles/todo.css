@@ -12,4 +12,9 @@
 .appbar-container {
   padding: 0.3em;
 }
-
+.header-icon {
+  color: #ffffff;
+}
+::placeholder {
+  color: #ffffff;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import AddTodo from "./Components/AddTodo";
 import ListTodo from "./Components/ListTodo";
-import LandingPage from "./Components/LandingPage";
+import MainPage from "./Components/MainPage";
 class App extends React.Component {
   render() {
     return (
@@ -12,7 +12,7 @@ class App extends React.Component {
       //   <AddTodo />
       //   <ListTodo />
       // </div>
-      <LandingPage />
+      <MainPage />
     );
   }
 }

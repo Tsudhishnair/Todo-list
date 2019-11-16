@@ -20,27 +20,28 @@ class AppHeader extends Component {
             </Grid>
             <Grid item>
               <IconButton type="submit" aria-label="search">
-                <SearchIcon />
+                <SearchIcon className="header-icon"/>
               </IconButton>
               <InputBase
                 placeholder="Search here your todos"
+                className="header-icon"
                 inputProps={{ "aria-label": "search google maps" }}
               />{" "}
             </Grid>
             <Grid item>
               <span>
                 <IconButton type="submit" aria-label="search">
-                  <AddRoundedIcon />
+                  <AddRoundedIcon className="header-icon" />
                 </IconButton>
               </span>
               <span>
                 <IconButton type="submit" aria-label="search">
-                  <NotificationsActiveRoundedIcon />
+                  <NotificationsActiveRoundedIcon className="header-icon" />
                 </IconButton>
               </span>
               <span>
                 <IconButton type="submit" aria-label="search">
-                  <SettingsRoundedIcon />
+                  <SettingsRoundedIcon className="header-icon" />
                 </IconButton>
               </span>
             </Grid>

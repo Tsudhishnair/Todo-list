@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AppHeader from "./AppHeader";
 
-class LandingPage extends Component {
+class MainPage extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class LandingPage extends Component {
     );
   }
 }
-export default LandingPage;
+export default MainPage;

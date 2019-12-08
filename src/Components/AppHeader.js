@@ -9,7 +9,8 @@ import NotificationsActiveRoundedIcon from "@material-ui/icons/NotificationsActi
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import { connect } from "react-redux";
 import { toggleModal } from "../Action/actions";
-import "../Styles/todo.css";
+import Badge from "@material-ui/core/Badge";
+import "../Styles/css/todo.css";
 
 class AppHeader extends Component {
   render() {
@@ -42,7 +43,9 @@ class AppHeader extends Component {
               </span>
               <span>
                 <IconButton type="submit" aria-label="search">
-                  <NotificationsActiveRoundedIcon className="header-icon" />
+                  <Badge color="primary" badgeContent={6}>
+                    <NotificationsActiveRoundedIcon className="header-icon" />
+                  </Badge>
                 </IconButton>
               </span>
               <span>

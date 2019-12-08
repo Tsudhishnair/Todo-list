@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { toggleTodo } from "../Action/actions";
-import $ from "jquery";
+
 class ListTodo extends React.Component {
   handleClick = (event, id) => {
     this.props.toggleTodoItem(id);

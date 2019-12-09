@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { toggleTodo } from "../Action/actions";
-
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 class ListTodo extends React.Component {
   handleClick = (event, id) => {
     this.props.toggleTodoItem(id);
@@ -14,17 +15,28 @@ class ListTodo extends React.Component {
           ? "Nothing to return as of now"
           : Object.entries(this.props.todolist.byIds).map((item, index) => {
               return item[1].completed ? (
-                <li
-                  key={index}
-                  onClick={e => this.handleClick(e, index + 1)}
-                  style={{ textDecoration: "line-through" }}
-                >
-                  {item[1].content}
-                </li>
+                <Card>
+                  <CardContent>
+                    <li
+                      key={index}
+                      onClick={e => this.handleClick(e, index + 1)}
+                      style={{ textDecoration: "line-through" }}
+                    >
+                      {item[1].content}
+                    </li>
+                  </CardContent>
+                </Card>
               ) : (
-                <li key={index} onClick={e => this.handleClick(e, index + 1)}>
-                  {item[1].content}
-                </li>
+                <Card>
+                  <CardContent>
+                    <li
+                      key={index}
+                      onClick={e => this.handleClick(e, index + 1)}
+                    >
+                      {item[1].content}
+                    </li>
+                  </CardContent>
+                </Card>
               );
             })}
       </div>
